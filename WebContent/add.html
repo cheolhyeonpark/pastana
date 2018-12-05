@@ -1,0 +1,119 @@
+<!DOCTYPE html>
+<html lang="ko">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>pastana</title>
+    <link href="css/bootstrap.min.css" rel="stylesheet">
+    <link href="css/common.css" rel="stylesheet">
+</head>
+
+<body>
+    <nav class="navbar navbar-expand-lg navbar-light bg-light">
+        <div class="container">
+            <a class="navbar-brand" href="index.html">PASTANA</a>
+            <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarTogglerDemo02" aria-controls="navbarTogglerDemo02"
+                aria-expanded="false" aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+
+            <div class="collapse navbar-collapse" id="navbarTogglerDemo02">
+                <ul class="navbar-nav mr-auto mt-2 mt-lg-0">
+                    <li class="nav-item">
+                        <a class="nav-link" href="index.html">HOME</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="menu.html">MENU</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="about.html">ABOUT</a>
+                    </li>
+                    <li class="nav-item active">
+                        <a class="nav-link" href="reservation.html">RESERVATION</a>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </nav>
+
+    <div class="bgphoto reservephoto">
+        <div class="title">
+            <h1>RESERVATION</h1>
+            <hr class="line">
+            <h5>BOOK A TABLE OR ROOMS FOR PRIVATE DINING</h5>
+        </div>
+    </div>
+
+    <div class="container contents">
+        <div class="row">
+            <div class="col-md-5">
+                <form action="./reserve/add" method="post">
+                    <div class="form-group">
+                        <input type="text" class="form-control" id="title" placeholder="Event Name">
+                    </div>
+                    <div class="row">
+                        <div class="col-md-6 form-group">
+                            <input type="date" class="form-control" id="date" placeholder="Event Date">
+                        </div>
+                        <div class="col-md-6 form-group">
+                            <select class="form-control" id="time">
+                                <option>Event Time</option>
+                                <option>6pm</option>
+                                <option>7pm</option>
+                                <option>8pm</option>
+                            </select>
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="col-md-6 form-group">
+                            <select class="form-control" id="guest">
+                                <option>Number of Guest</option>
+                                <option>1</option>
+                                <option>2</option>
+                                <option>3</option>
+                                <option>4</option>
+                            </select>
+                        </div>
+                        <div class="col-md-6 form-group">
+                            <input type="tel" class="form-control" id="phone" placeholder="Phone Number">
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="col-md-6 form-group">
+                            <input type="text" class="form-control" id="name" placeholder="Name">
+                        </div>
+                        <div class="col-md-6 form-group">
+                            <input type="password" class="form-control" id="password" placeholder="Password">
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <textarea class="form-control" id="message" rows="5">Message</textarea>
+                    </div>
+                    <hr>
+                    <input class="btn btn-dark" value="SEND REQUEST" type="submit">
+                </form>
+            </div>
+            <div class="col-md-7" style="padding-bottom: 19px;">
+                <div class="bgphoto endphoto" style="width: 100%; height: 100%;"></div>
+            </div>
+        </div>
+    </div>
+
+    <footer style="margin-top: 30px;">
+        <div class="bottomfoot">
+            <div class="container">
+                <p>
+                    Copyright © 2018 All rights reserved
+                </p>
+            </div>
+        </div>
+    </footer>
+
+    <script src="js/jquery-3.3.1.min.js"></script>
+    <script src="js/popper.min.js"></script>
+    <script src="js/bootstrap.min.js"></script>
+</body>
+
+</html>

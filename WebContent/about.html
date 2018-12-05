@@ -1,0 +1,123 @@
+<!DOCTYPE html>
+<html lang="ko">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>pastana</title>
+    <link href="css/bootstrap.min.css" rel="stylesheet">
+    <link href="css/common.css" rel="stylesheet">
+</head>
+
+<body>
+    <nav class="navbar navbar-expand-lg navbar-light bg-light">
+        <div class="container">
+            <a class="navbar-brand" href="index.html">PASTANA</a>
+            <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarTogglerDemo02" aria-controls="navbarTogglerDemo02"
+                aria-expanded="false" aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+
+            <div class="collapse navbar-collapse" id="navbarTogglerDemo02">
+                <ul class="navbar-nav mr-auto mt-2 mt-lg-0">
+                    <li class="nav-item">
+                        <a class="nav-link" href="index.html">HOME</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="menu.html">MENU</a>
+                    </li>
+                    <li class="nav-item active">
+                        <a class="nav-link" href="about.html">ABOUT</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="reservation.html">RESERVATION</a>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </nav>
+
+    <div class="bgphoto aboutphoto">
+        <div class="title">
+            <h1>ABOUT US</h1>
+            <hr class="line">
+            <h5>Do You Want to Know Us?</h5>
+        </div>
+    </div>
+
+    <div class="container contents">
+        <div class="row">
+            <div class="col-md-6">
+                <div class="jumbotron">
+                    <h1 class="display-5">ABOUT PASTANA</h1>
+                    <hr class="my-4">
+                    <p class="lead">Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore
+                        et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut
+                        aliquip ex ea commodo consequat.
+                    </p>
+                </div>
+            </div>
+            <div class="col-md-6" style="padding-bottom: 30px;">
+                <div class="bgphoto menuphoto" style="height: 100%;"></div>
+            </div>
+        </div>
+
+        <div class="row">
+            <div class="col-md-6" style="padding-bottom: 30px;">
+                <div id="map" style="width: 100%; height: 360px;"></div>
+            </div>
+            <div class="col-md-6">
+                <div class="jumbotron">
+                    <h1 class="display-5">CONTACT US</h1>
+                    <hr class="my-4">
+                    <p class="lead">Mapo-gu, Seoul, Republic of Korea</p>
+                    <p class="lead">02 123 4567</p>
+                    <p class="lead">pastana@pastana.com</p>
+                </div>
+            </div>
+        </div>
+
+
+    </div>
+
+    <footer>
+        <div class="bottomfoot">
+            <div class="container">
+
+                <p>
+                    Copyright © 2018 All rights reserved
+                </p>
+            </div>
+        </div>
+    </footer>
+
+    <script src="js/jquery-3.3.1.min.js"></script>
+    <script src="js/popper.min.js"></script>
+    <script src="js/bootstrap.min.js"></script>
+    <script src="//dapi.kakao.com/v2/maps/sdk.js?appkey=83c2b82ff87bbaca7de26846b5d93a7b"></script>
+    <script>
+        var mapContainer = document.getElementById('map'), // 지도를 표시할 div 
+            mapOption = {
+                center: new daum.maps.LatLng(37.5491165, 126.9248086), // 지도의 중심좌표
+                level: 4, // 지도의 확대 레벨
+                mapTypeId: daum.maps.MapTypeId.ROADMAP // 지도종류
+            };
+
+        // 지도를 생성한다 
+        var map = new daum.maps.Map(mapContainer, mapOption);
+
+        // 마커가 표시될 위치입니다 
+        var markerPosition = new daum.maps.LatLng(37.5491165, 126.9248086);
+
+        // 마커를 생성합니다
+        var marker = new daum.maps.Marker({
+            position: markerPosition
+        });
+
+        // 마커가 지도 위에 표시되도록 설정합니다
+        marker.setMap(map);
+    </script>
+</body>
+
+</html>
