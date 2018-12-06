@@ -49,50 +49,50 @@
     <div class="container contents">
         <div class="row">
             <div class="col-md-5">
-                <form action="./reserve/add" method="post">
+                <form action="reserve/add" method="post" id="form1">
                     <div class="form-group">
-                        <input type="text" class="form-control" id="title" placeholder="Event Name">
+                        <input type="text" class="form-control" id="title" name="title" placeholder="Event Name">
                     </div>
                     <div class="row">
                         <div class="col-md-6 form-group">
-                            <input type="date" class="form-control" id="date" placeholder="Event Date">
+                            <input type="date" class="form-control" id="date" name="date" placeholder="Event Date">
                         </div>
                         <div class="col-md-6 form-group">
-                            <select class="form-control" id="time">
-                                <option>Event Time</option>
-                                <option>6pm</option>
-                                <option>7pm</option>
-                                <option>8pm</option>
+                            <select class="form-control" id="time" name="time">
+                                <option value='0'>Event Time</option>
+                                <option value="6">6pm</option>
+                                <option value="7">7pm</option>
+                                <option value="8">8pm</option>
                             </select>
                         </div>
                     </div>
                     <div class="row">
                         <div class="col-md-6 form-group">
-                            <select class="form-control" id="guest">
-                                <option>Number of Guest</option>
-                                <option>1</option>
-                                <option>2</option>
-                                <option>3</option>
-                                <option>4</option>
+                            <select class="form-control" id="guest" name="guest">
+                                <option value='0'>Number of Guest</option>
+                                <option value="1">1</option>
+                                <option value="2">2</option>
+                                <option value="3">3</option>
+                                <option value="4">4</option>
                             </select>
                         </div>
                         <div class="col-md-6 form-group">
-                            <input type="tel" class="form-control" id="phone" placeholder="Phone Number">
+                            <input type="tel" class="form-control" id="phone" name="phone" placeholder="Phone Number">
                         </div>
                     </div>
                     <div class="row">
                         <div class="col-md-6 form-group">
-                            <input type="text" class="form-control" id="name" placeholder="Name">
+                            <input type="text" class="form-control" id="name" name="name" placeholder="Name">
                         </div>
                         <div class="col-md-6 form-group">
-                            <input type="password" class="form-control" id="password" placeholder="Password">
+                            <input type="password" class="form-control" id="password" name="password" placeholder="Password">
                         </div>
                     </div>
                     <div class="form-group">
-                        <textarea class="form-control" id="message" rows="5">Message</textarea>
+                        <textarea class="form-control" id="message" name="message" rows="5">Message</textarea>
                     </div>
                     <hr>
-                    <input class="btn btn-dark" value="SEND REQUEST" type="submit">
+                    <a class="btn btn-dark" href="#" onclick="clicksubmit()">SEND REQUEST</a>
                 </form>
             </div>
             <div class="col-md-7" style="padding-bottom: 19px;">
@@ -114,6 +114,39 @@
     <script src="js/jquery-3.3.1.min.js"></script>
     <script src="js/popper.min.js"></script>
     <script src="js/bootstrap.min.js"></script>
+    <script>
+    	function clicksubmit() {
+    		if($("#title").val()==null || $("#title").val()=='') {
+				alert("제목을 적어주세요");
+				return;
+			}
+    		if($("#date").val()==null || $("#date").val()=='') {
+				alert("날짜를 정해주세요");
+				return;
+			}
+    		if($("#time").val()==null || $("#time").val()=='0') {
+				alert("시간을 정해주세요");
+				return;
+			}
+    		if($("#guest").val()==null || $("#guest").val()=='0') {
+				alert("인원을 선택해주세요.");
+				return;
+			}
+    		if($("#phone").val()==null || $("#phone").val()=='') {
+				alert("전화번호를 적어주세요.");
+				return;
+			}
+    		if($("#name").val()==null || $("#name").val()=='') {
+				alert("이름을 적어주세요.");
+				return;
+			}
+			if($("#password").val()==null || $("#password").val()=='') {
+				alert("비밀번호를 적어주세요.");
+				return;
+			}
+			$("#form1").submit();
+		}
+    </script>
 </body>
 
 </html>
