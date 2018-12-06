@@ -82,15 +82,18 @@
                             <span class="sr-only">Previous</span>
                         </a>
                     </li>
-                    <li class="page-item active">
-                        <a class="page-link" href="#">1</a>
-                    </li>
-                    <li class="page-item">
-                        <a class="page-link" href="#">2</a>
-                    </li>
-                    <li class="page-item">
-                        <a class="page-link" href="#">3</a>
-                    </li>
+                    <c:forEach var="i" begin="${start }" end="${end }" step="1">
+                    	<c:choose>
+                    	<c:when test="${current == i}">
+	                    	<li class="page-item active">
+                    	</c:when>
+                    	<c:otherwise>
+                    		<li class="page-item">
+                    	</c:otherwise>
+                    </c:choose>
+		                    <a class="page-link" href="list?current=${i }">${i }</a>
+		                </li>
+                    </c:forEach>
                     <li class="page-item">
                         <a class="page-link" href="#" aria-label="Next">
                             <span aria-hidden="true">&raquo;</span>

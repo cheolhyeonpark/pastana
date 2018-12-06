@@ -27,11 +27,15 @@ public class reservationListServlet extends HttpServlet {
 		int page = 10;
 		int begin = (current-1)*page;
 		int last = total % page == 0 ? total/page : total/page + 1;
+		int start = (current-1)/10 * 10 + 1;
+		int end = start + 9;
 		
 		List<Reservation> list = reservationDAO.selectList(begin, page);
 		req.setAttribute("current", current);
 		req.setAttribute("last", last);
 		req.setAttribute("list", list);
+		req.setAttribute("start", start);
+		req.setAttribute("end", end);
 		req.getRequestDispatcher("/reservation.jsp").forward(req, resp);
 	}
 }
