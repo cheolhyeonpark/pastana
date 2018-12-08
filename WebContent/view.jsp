@@ -1,3 +1,6 @@
+<%@ page language="java" contentType="text/html; charset=UTF-8"
+    pageEncoding="UTF-8"%>
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <!DOCTYPE html>
 <html lang="ko">
 
@@ -31,7 +34,7 @@
                         <a class="nav-link" href="about.html">ABOUT</a>
                     </li>
                     <li class="nav-item active">
-                        <a class="nav-link" href="reservation.html">RESERVATION</a>
+                        <a class="nav-link" href="list">RESERVATION</a>
                     </li>
                 </ul>
             </div>
@@ -51,29 +54,29 @@
             <div class="col-md-5">
                 <form>
                     <div>
-                        Title : 
+                        Title : ${reservation.title }
                     </div>
                     <div class="row">
                         <div class="col-md-6">
-                            Date :
+                            Date : ${reservation.date }
                         </div>
                         <div class="col-md-6">
-                            Time : 
+                            Time : ${reservation.time }
                         </div>
                     </div>
                     <div class="row">
                         <div class="col-md-6">
-                            Number of Guest : 
+                            Number of Guest : ${reservation.guest }
                         </div>
                         <div class="col-md-6">
-                            Phone :
+                            Phone : ${reservation.phone }
                         </div>
                     </div>
                     <div>
-                        Name : 
+                        Name : ${reservation.name }
                     </div>
                     <div>
-                        Message :     
+                        Message : ${reservation.message }    
                     </div>
                     <hr>
                     <a class="btn btn-dark" href="#">modify</a>

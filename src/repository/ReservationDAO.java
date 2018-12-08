@@ -102,6 +102,36 @@ public class ReservationDAO {
 		return list;
 	}
 
+	public Reservation selectOne(int reNo) {
+		Reservation reservation = null;
+		Connection connection = null;
+		PreparedStatement preparedStatement = null;
+		ResultSet resultSet = null;
+		String sql = "SELECT reNo, name, title, date, time, guest, phone, message FROM reserve WHERE reNo = ?";
+		try {
+			connection = this.getConnection();
+			preparedStatement = connection.prepareStatement(sql);
+			preparedStatement.setInt(1, reNo);
+			resultSet = preparedStatement.executeQuery();
+			if (resultSet.next()) {
+				reservation = new Reservation();
+				reservation.setReNo(resultSet.getInt("reNo"));
+				reservation.setName(resultSet.getString("name"));
+				reservation.setTitle(resultSet.getString("title"));
+				reservation.setDate(resultSet.getString("date"));
+				reservation.setTime(resultSet.getInt("time"));
+				reservation.setGuest(resultSet.getInt("guest"));
+				reservation.setPhone(resultSet.getString("phone"));
+				reservation.setMessage(resultSet.getString("message"));
+			}
+		} catch (Exception e) {
+			e.printStackTrace();
+		} finally {
+			this.close(connection, preparedStatement, resultSet);
+		}
+		return reservation;
+	}
+
 	private void close(Connection connection, PreparedStatement preparedStatement, ResultSet resultSet) {
 		if (resultSet != null) {
 			try {

@@ -11,7 +11,7 @@ import javax.servlet.http.HttpServletResponse;
 import domain.Reservation;
 import repository.ReservationDAO;
 
-@WebServlet("/reserve/add")
+@WebServlet("/add")
 public class reservationAddServlet extends HttpServlet {
 
 	@Override
@@ -32,7 +32,7 @@ public class reservationAddServlet extends HttpServlet {
 			int rowCount = reservationDAO.insert(reservation);
 
 			if (rowCount == 1)
-				resp.sendRedirect(req.getContextPath() + "/reservation.html");
+				resp.sendRedirect(req.getContextPath() + "/list");
 			else
 				resp.sendRedirect(req.getContextPath() + "/error.html");
 		} catch (Exception e) {
