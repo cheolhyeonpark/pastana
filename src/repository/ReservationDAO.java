@@ -131,6 +131,37 @@ public class ReservationDAO {
 		}
 		return reservation;
 	}
+	
+	public int updateReservation(Reservation reservation) {
+		int rowCount = 0;
+		Connection connection = null;
+		PreparedStatement preparedStatement = null;
+		String sql = "UPDATE reserve SET name=?, title=?, date=?, time=?, guest=?, phone=?, message=? WHERE reNo=? AND password=PASSWORD(?)";
+		try {
+			connection = this.getConnection();
+			preparedStatement = connection.prepareStatement(sql);
+			preparedStatement.setString(1, reservation.getName());
+			preparedStatement.setString(2, reservation.getTitle());
+			preparedStatement.setString(3, reservation.getDate());
+			preparedStatement.setInt(4, reservation.getTime());
+			preparedStatement.setInt(5, reservation.getGuest());
+			preparedStatement.setString(6, reservation.getPhone());
+			preparedStatement.setString(7, reservation.getMessage());
+			preparedStatement.setInt(8, reservation.getReNo());
+			preparedStatement.setString(9, reservation.getPassword());
+			rowCount = preparedStatement.executeUpdate();
+		} catch (Exception e) {
+			e.printStackTrace();
+		} finally {
+			this.close(connection, preparedStatement, null);
+		}
+		return rowCount;
+	}
+	
+	public int deleteReservation(int reNo, int password) {
+		int rowCount = 0;
+		return rowCount;
+	}
 
 	private void close(Connection connection, PreparedStatement preparedStatement, ResultSet resultSet) {
 		if (resultSet != null) {

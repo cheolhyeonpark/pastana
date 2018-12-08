@@ -79,8 +79,8 @@
                         Message : ${reservation.message }    
                     </div>
                     <hr>
-                    <a class="btn btn-dark" href="#">modify</a>
-                    <a class="btn btn-dark" href="#">remove</a>
+                    <a class="btn btn-dark" href="modify?reNo=${reservation.reNo }">modify</a>
+                    <a class="btn btn-dark" href="delete?reNo=${reservation.reNo }">remove</a>
                 </form>
             </div>
             <div class="col-md-7" style="padding-bottom: 19px;">
