@@ -158,8 +158,22 @@ public class ReservationDAO {
 		return rowCount;
 	}
 	
-	public int deleteReservation(int reNo, int password) {
+	public int deleteReservation(int reNo, String password) {
 		int rowCount = 0;
+		Connection connection = null;
+		PreparedStatement preparedStatement = null;
+		String sql = "DELETE FROM reserve WHERE reNo = ? AND password = PASSWORD(?)";
+		try {
+			connection = this.getConnection();
+			preparedStatement = connection.prepareStatement(sql);
+			preparedStatement.setInt(1, reNo);
+			preparedStatement.setString(2, password);
+			rowCount = preparedStatement.executeUpdate();
+		} catch (Exception e) {
+			e.printStackTrace();
+		} finally {
+			this.close(connection, preparedStatement, null);
+		}
 		return rowCount;
 	}
 
